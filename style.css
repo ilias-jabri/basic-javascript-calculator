@@ -1,0 +1,122 @@
+
+::-webkit-scrollbar{
+ width: 10px;
+}
+
+
+
+
+
+body{
+    scrollbar-width: none;
+    background-image:image('123b.jpg');
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Tahoma, sans-serif;
+}
+#calculator{
+    position: absolute;
+}
+img{
+    width: 101%;
+    margin: -10px -10px -10px -10px;
+}
+#calcu{
+
+    padding-top: 30px;
+    background-color: rgb(8, 5, 5);
+    border-radius: 20px;
+    height: 360px;
+    width: 300px;
+
+}
+#inpo{
+    background-color: rgb(249, 250, 214);
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 10px;
+    border: none;
+    height: 35px;
+    width: 210px;
+    margin-top: 20px;
+    margin-left: 42px;
+}
+#c{
+    position: absolute;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(149, 221, 231);
+    width: 50px;
+    transform: translate(42px,70px);
+}
+#c:hover{
+    transition: 1s;
+    background-color: rgb(152, 100, 153);
+}
+#container{
+    margin-top: 40px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 5px;
+}
+.op{
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(149, 221, 231);
+    color: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px; 
+    transition: 1s; 
+}
+.op:hover{
+    border-radius: 25%;
+    border: none;
+    background-color: rgb(163, 109, 165);
+    color: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;  
+}
+.calcButton{
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(249, 250, 214);
+    color: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;
+    transition: 0.5s;
+
+}
+.calcButton:hover{
+    border-radius: 25%;
+    background-color: rgb(169, 170, 142);
+}
+#equalButton{
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(249, 250, 214);
+    color: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;
+    transition: 0.5s;
+
+}
+#equalButton:hover{
+    background-color: rgb(209, 65, 65);
+    border-radius: 25%;
+}
+#Del{
+    position: absolute;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(149, 221, 231);
+    width: 50px;
+    transform: translate(208px,70px);
+}
+#Del:hover{
+    transition: 0.5s;
+    background-color: rgb(159, 104, 160);
+}
