@@ -19,14 +19,27 @@ let dot = document.getElementById('.')
 let del = document.getElementById('Del')
 
 
+let result = null;
+let checkeq = 0;
+let stack = null
 
 
-inpo.value = ''
+
+function numbersInput(val){
+        if(checkeq === 1){checkeq = 0; inpo.value = val}
+        else{inpo.value = inpo.value + val; stack = val}
+}
+function operations(val){
+        let reg = /\D/
+        console.log(reg.test(stack))
+        if (reg.test(stack)) {return}
+        if(checkeq > 1){checkeq = 0; inpo.value = val}
+        else if(inpo.value == ''){return}
+        else{inpo.value = inpo.value + val; stack = val}
+}
+
+
 reset.onclick = function (){inpo.value = ''}
-
-
-
-
 del.onclick = function (){ 
         let val = inpo.value
         val = val.split('')
@@ -34,78 +47,29 @@ del.onclick = function (){
         val = val.join('')
         inpo.value = val
 }
-zero.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '0'}
-        else{inpo.value = inpo.value + '0'}
-        }
-one.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '1'}
-        else{inpo.value = inpo.value + '1'}
-        }
-two.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '2'}
-        else{inpo.value = inpo.value + '2'}
-        }
-three.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '3'}
-        else{inpo.value = inpo.value + '3'}
-        }
-foor.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '4'}
-        else{inpo.value = inpo.value + '4'}
-        }
-five.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '5'}
-        else{inpo.value = inpo.value + '5'}
-        }
-six.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '6'}
-        else{inpo.value = inpo.value + '6'}
-        }
-seven.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '7'}
-        else{inpo.value = inpo.value + '7'}
-        }
-eight.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '8'}
-        else{inpo.value = inpo.value + '8'}
-        }
-nine.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '9'}
-        else{inpo.value = inpo.value + '9'}
-        }
-plus.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '+'}
-        else if(inpo.value == ''){return}
-        else{inpo.value = inpo.value + '+'}
-        }
-minus.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '-'}
-        else{inpo.value = inpo.value + '-'}
-        }
-devide.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = '/'}
-        else if(inpo.value == ''){return}
-        else{inpo.value = inpo.value + '/'}
-        }
-multiplay.onclick = function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = 'x'}
-        else if(inpo.value == ''){return}
-        else{inpo.value = inpo.value + 'x'}
-        }
-dot.onclick =  function (){
-        if(checkeq === 1){checkeq = 0; inpo.value = ''}
-        else if(inpo.value == ''){return}
-        else{inpo.value = inpo.value + '.'}
-        }
+zero.onclick = ()=>numbersInput('0')
+one.onclick = ()=>numbersInput('1')
+two.onclick = ()=>numbersInput('2')
+three.onclick = ()=>numbersInput('3')
+foor.onclick = ()=>numbersInput('4')
+five.onclick = ()=>numbersInput('5')
+six.onclick = ()=>numbersInput('6')
+seven.onclick = ()=>numbersInput('7')
+eight.onclick = ()=>numbersInput('8')
+nine.onclick = ()=>numbersInput('9')
 
-const result = null;
-let checkeq = 0;
-
+plus.onclick = () => operations('+')
+minus.onclick = () => operations('-')
+devide.onclick = () => operations('/')
+multiplay.onclick = () => operations('x')
+dot.onclick =  () => operations('.')
 
 equalBtn.onclick = function (){
+        if (checkeq > 0) {
+                return inpo.value = ''
+        }
         checkeq+=1
-        let result = null
+        result = null
         let kkk = inpo.value
         let regex = /[-\+\/\*x]/i
         let operator = kkk.match(regex)[0]
@@ -118,24 +82,32 @@ equalBtn.onclick = function (){
         console.log(first,seccond)
         first = first.join('')
         seccond = seccond.join('')
+        first = parseInt(first)
+        seccond = parseInt(seccond)
         switch (operator) {
                 case '-':
-                      result= parseInt(first) - parseInt(seccond)  
+                      result= first - seccond  
                         break;
                 case '+':
-                      result= parseInt(first) + parseInt(seccond)  
+                        result= first + seccond  
                         break;
          
                 case '*':
-                        result= parseInt(first) * parseInt(seccond)  
+                        result= first * seccond  
                         break;
                 case 'x':
-                        result= parseInt(first) * parseInt(seccond)  
+                        result= first * seccond  
                         break;
                 case 'X':
-                        result= parseInt(first) * parseInt(seccond)  
+                        result= first * seccond  
                         break;        
                 case '/':
-                        result= parseInt(first) / parseInt(seccond)  
+                        result= first / seccond  
                         break;          
         }
+
+        inpo.value = result
+        console.log(result)
+        
+}
+
