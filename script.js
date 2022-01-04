@@ -17,6 +17,37 @@ let multiplay = document.getElementById('x')
 let reset = document.getElementById('c')
 let dot = document.getElementById('.')
 let del = document.getElementById('Del')
+let settings = document.getElementById('settings')
+let hidSection = document.getElementById('hidden-section')
+let click = document.getElementById('click')
+let red = document.getElementById('red')
+let black = document.getElementById('black')
+let green = document.getElementById('green')
+let purple = document.getElementById('purple')
+let defaultColor = document.getElementById('default-color')
+let orange = document.getElementById('orange')
+let calculator = document.getElementById('calcu')
+
+red.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , red, aqua)'}
+black.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , black, aqua)'}
+green.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , green, aqua)'}
+purple.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , purple, aqua)'}
+orange.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , orange, aqua)'}
+defaultColor.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , rgb(53, 53, 94), aqua)'}
+
+click.onclick = ()=>{
+        hidSection.style.transform = 'translate(-250px)'
+        hidSection.style.visibility = 'hidden'
+        click.style.opacity = '0'
+}
+
+settings.onclick = ()=> { 
+        console.log(true)
+        click.style.opacity = '0.8'
+        hidSection.style.visibility = 'visible'
+        hidSection.style.transform = 'translate(0px)'
+}
+
 
 
 let result = null;
@@ -82,8 +113,8 @@ equalBtn.onclick = function (){
         console.log(first,seccond)
         first = first.join('')
         seccond = seccond.join('')
-        first = parseInt(first)
-        seccond = parseInt(seccond)
+        first = parseFloat(first)
+        seccond = parseFloat(seccond)
         switch (operator) {
                 case '-':
                       result= first - seccond  
