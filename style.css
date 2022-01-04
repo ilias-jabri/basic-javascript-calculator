@@ -1,9 +1,9 @@
 
-::-webkit-scrollbar{
- width: 10px;
+:root{
+    --shadow-under: 0px 3px rgba(0, 0, 0, 0.2);
+    --shadow-under-after: 0px 0px rgba(0, 0, 0, 0.3);
 }
-
-h1{
+#hidden-javascript{    
     color: white;
     font-size: 29px;
     margin-bottom: 50px;
@@ -18,6 +18,7 @@ body{
     justify-content: center;
     font-family: Tahoma, sans-serif;
 }
+
 #calculator{
     position: absolute;
     z-index: 1;
@@ -46,6 +47,7 @@ body{
     margin-left: 42px;
 }
 #c{
+    box-shadow: var(--shadow-under);
     position: absolute;
     border-radius: 5px;
     border: none;
@@ -56,6 +58,7 @@ body{
 #c:hover{
     transition: 1s;
     background-color: rgb(152, 100, 153);
+    box-shadow: var(--shadow-under-after);
     cursor:pointer;
 }
 #container{
@@ -67,6 +70,7 @@ body{
     gap: 5px;
 }
 .op{
+    box-shadow: var(--shadow-under);
     border-radius: 5px;
     border: none;
     background-color: rgb(149, 221, 231);
@@ -83,8 +87,10 @@ body{
     height: 50px;
     width: 50px;  
     cursor:pointer;
+    box-shadow: var(--shadow-under-after);
 }
 .calcButton{
+    box-shadow: var(--shadow-under);
     border-radius: 5px;
     border: none;
     background-color: rgb(249, 250, 214);
@@ -95,11 +101,13 @@ body{
 
 }
 .calcButton:hover{
-    border-radius: 25%;
-    background-color: rgb(169, 170, 142);
+    border-radius: 20%;
+    background-color: rgb(232, 233, 200);
     cursor:pointer;
+    box-shadow: var(--shadow-under-after);
 }
 #equalButton{
+    box-shadow: var(--shadow-under);
     border-radius: 5px;
     border: none;
     background-color: rgb(249, 250, 214);
@@ -113,8 +121,10 @@ body{
     background-color: rgb(209, 65, 65);
     border-radius: 25%;
     cursor:pointer;
+    box-shadow: var(--shadow-under-after);
 }
 #Del{
+    box-shadow: var(--shadow-under);
     position: absolute;
     border-radius: 5px;
     border: none;
@@ -126,4 +136,5 @@ body{
     transition: 0.5s;
     background-color: rgb(159, 104, 160);
     cursor:pointer;
+    box-shadow: var(--shadow-under-after);
 }
