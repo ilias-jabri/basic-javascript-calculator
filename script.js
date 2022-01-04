@@ -18,7 +18,8 @@ let reset = document.getElementById('c')
 let dot = document.getElementById('.')
 let del = document.getElementById('Del')
 
-let numbers = [zero,one,two,three,foor,five,six,seven,eight,nine]
+
+
 
 inpo.value = ''
 reset.onclick = function (){inpo.value = ''}
@@ -33,25 +34,77 @@ del.onclick = function (){
         val = val.join('')
         inpo.value = val
 }
-zero.onclick = function (){return inpo.value = inpo.value + zero.innerText}
-one.onclick = function (){return inpo.value = inpo.value + one.innerText}
-two.onclick = function (){return inpo.value = inpo.value + two.innerText}
-three.onclick = function (){return inpo.value = inpo.value + three.innerText}
-foor.onclick = function (){return inpo.value = inpo.value + foor.innerText}
-five.onclick = function (){return inpo.value = inpo.value + five.innerText}
-six.onclick = function (){return inpo.value = inpo.value + six.innerText}
-seven.onclick = function (){return inpo.value = inpo.value + seven.innerText}
-eight.onclick = function (){return inpo.value = inpo.value + eight.innerText}
-nine.onclick = function (){return inpo.value = inpo.value + nine.innerText}
-plus.onclick = function (){return inpo.value = inpo.value + plus.innerText}
-minus.onclick = function (){return inpo.value = inpo.value + minus.innerText}
-devide.onclick = function (){return inpo.value = inpo.value + devide.innerText}
-multiplay.onclick = function (){return inpo.value = inpo.value + multiplay.innerText}
-dot.onclick = function (){return inpo.value = inpo.value + dot.innerText}
+zero.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '0'}
+        else{inpo.value = inpo.value + '0'}
+        }
+one.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '1'}
+        else{inpo.value = inpo.value + '1'}
+        }
+two.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '2'}
+        else{inpo.value = inpo.value + '2'}
+        }
+three.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '3'}
+        else{inpo.value = inpo.value + '3'}
+        }
+foor.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '4'}
+        else{inpo.value = inpo.value + '4'}
+        }
+five.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '5'}
+        else{inpo.value = inpo.value + '5'}
+        }
+six.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '6'}
+        else{inpo.value = inpo.value + '6'}
+        }
+seven.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '7'}
+        else{inpo.value = inpo.value + '7'}
+        }
+eight.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '8'}
+        else{inpo.value = inpo.value + '8'}
+        }
+nine.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '9'}
+        else{inpo.value = inpo.value + '9'}
+        }
+plus.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '+'}
+        else if(inpo.value == ''){return}
+        else{inpo.value = inpo.value + '+'}
+        }
+minus.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '-'}
+        else{inpo.value = inpo.value + '-'}
+        }
+devide.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = '/'}
+        else if(inpo.value == ''){return}
+        else{inpo.value = inpo.value + '/'}
+        }
+multiplay.onclick = function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = 'x'}
+        else if(inpo.value == ''){return}
+        else{inpo.value = inpo.value + 'x'}
+        }
+dot.onclick =  function (){
+        if(checkeq === 1){checkeq = 0; inpo.value = ''}
+        else if(inpo.value == ''){return}
+        else{inpo.value = inpo.value + '.'}
+        }
 
-const result = null
+const result = null;
+let checkeq = 0;
+
 
 equalBtn.onclick = function (){
+        checkeq+=1
         let result = null
         let kkk = inpo.value
         let regex = /[-\+\/\*x]/i
@@ -86,9 +139,3 @@ equalBtn.onclick = function (){
                         result= parseInt(first) / parseInt(seccond)  
                         break;          
         }
-        inpo.value = result
-        console.log(result)
-
-}
-
-
