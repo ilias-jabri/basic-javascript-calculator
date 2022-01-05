@@ -1,4 +1,4 @@
-let inpo = document.getElementById('inpo')
+let input = document.getElementById('input')
 let equalBtn = document.getElementById('equalButton')
 let zero = document.getElementById('0')
 let one = document.getElementById('1')
@@ -38,12 +38,14 @@ defaultColor.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg
 click.onclick = ()=>{
         hidSection.style.transform = 'translate(-250px)'
         hidSection.style.visibility = 'hidden'
+        hidSection.style.opacity = '0'
         click.style.opacity = '0'
 }
 
 settings.onclick = ()=> { 
         console.log(true)
         click.style.opacity = '0.8'
+        hidSection.style.opacity = '1'
         hidSection.style.visibility = 'visible'
         hidSection.style.transform = 'translate(0px)'
 }
@@ -57,26 +59,26 @@ let stack = null
 
 
 function numbersInput(val){
-        if(checkeq === 1){checkeq = 0; inpo.value = val}
-        else{inpo.value = inpo.value + val; stack = val}
+        if(checkeq === 1){checkeq = 0; input.value = val}
+        else{input.value = input.value + val; stack = val}
 }
 function operations(val){
         let reg = /\D/
         console.log(reg.test(stack))
         if (reg.test(stack)) {return}
-        if(checkeq > 1){checkeq = 0; inpo.value = val}
-        else if(inpo.value == ''){return}
-        else{inpo.value = inpo.value + val; stack = val}
+        if(checkeq > 1){checkeq = 0; input.value = val}
+        else if(input.value == ''){return}
+        else{input.value = input.value + val; stack = val}
 }
 
 
-reset.onclick = function (){inpo.value = ''}
+reset.onclick = function (){input.value = ''}
 del.onclick = function (){ 
-        let val = inpo.value
+        let val = input.value
         val = val.split('')
         val.pop()
         val = val.join('')
-        inpo.value = val
+        input.value = val
 }
 zero.onclick = ()=>numbersInput('0')
 one.onclick = ()=>numbersInput('1')
@@ -97,15 +99,15 @@ dot.onclick =  () => operations('.')
 
 equalBtn.onclick = function (){
         if (checkeq > 0) {
-                return inpo.value = ''
+                return input.value = ''
         }
         checkeq+=1
         result = null
-        let kkk = inpo.value
+        let kkk = input.value
         let regex = /[-\+\/\*x]/i
         let operator = kkk.match(regex)[0]
         let end = kkk.match(regex).index
-        kkk = [...inpo.value]
+        kkk = [...input.value]
         console.log(end, operator)
         let first = kkk.slice(0,end)
         let seccond = kkk.slice(end+1)
@@ -137,7 +139,7 @@ equalBtn.onclick = function (){
                         break;          
         }
 
-        inpo.value = result
+        input.value = result
         console.log(result)
         
 }
