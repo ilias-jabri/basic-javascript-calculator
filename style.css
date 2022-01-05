@@ -150,7 +150,7 @@ body{
 
 }
 
-#inpo{
+#input{
     background-color: rgb(249, 250, 214);
     border-radius: 5px;
     font-weight: 300;
@@ -256,7 +256,6 @@ body{
 }
 
 @media (max-width: 800px){
-
     #color-container{
         position: relative;
         width: 90px;
