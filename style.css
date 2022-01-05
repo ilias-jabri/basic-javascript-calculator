@@ -19,32 +19,50 @@ background-color: purple;
     background-color: orange;
 }
 #default-color{
-    background: linear-gradient(45deg , rgb(53, 53, 94), aqua);
+    background: rgb(53, 53, 94);
+}
+#color-container{
+    position: relative;
+    left: 5%;
+    width: 90px;
+    height: 60px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 8px;
+}
+#colors-section{
+    
+}
+#change-colors-txt{
+    grid-column: 1/4;
+    text-align: center;
+    border-radius: 3px;
+    margin: 10%;
+    background-color: rgb(81, 170, 197);
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-weight: 100;
+
 }
 #hidden-section{
     visibility: hidden;
     transform: translate(-250px);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: linear-gradient( 45deg , rgb(16, 20, 68) , rgb(93, 250, 255));
+    background: linear-gradient( 45deg , rgb(105, 126, 150) , rgb(0, 245, 253));
     width: 250px;
-    height: 100vh;
+    height: 100%;
     bottom: 0%;
     position: absolute;
     transition: 0.5s;
 }
 .inside-hidden{
-    margin-top: 10px;
-    padding-top: 10px;
-    text-align: center;
-    text-transform: uppercase;
     color: white;
-    font-size: 80%;
-    border-radius: 5px;
+    font-size: 0;
+    border-radius: 10%;
     position: relative;
     height: 30px;
-    width: 85%;
+    width: 30px;
     background-color: rgb(61, 84, 126);
 
 }
@@ -236,8 +254,55 @@ body{
     cursor:pointer;
     box-shadow: var(--shadow-under-after);
 }
+
 @media (max-width: 800px){
     body{
-        background: rgb(49, 43, 43);
+        background: rgb(255, 255, 255);
+    }
+    #color-container{
+        position: relative;
+        width: 90px;
+        height: 60px;
+        display: grid;
+        grid-template-columns: repeat(3,30px);
+        grid-template-rows: repeat(3,30px);
+
+    }
+    #colors-section{
+        width: 200px;
+        left: 0%;
+        
+    }
+    #change-colors-txt{
+        margin-left: 5%;
+        margin-right: 0%;
+        grid-column: 1/4;
+        text-align: start;
+        border-radius: 3px;
+        background-color: rgb(81, 170, 197);
+        color: rgb(255, 255, 255);
+        font-family: sans-serif;
+        font-weight: 100;
+    
+    }
+    #hidden-section{
+        visibility: hidden;
+        transform: translate(-250px);
+        background: linear-gradient( 45deg , rgb(105, 126, 150) , rgb(0, 245, 253));
+        width: 100%;
+        height: 20%;
+        bottom: 0%;
+        position: absolute;
+        transition: 0.5s;
+    }
+    .inside-hidden{
+        color: white;
+        font-size: 0;
+        border-radius: 10%;
+        position: relative;
+        height: 30px;
+        width: 30px;
+        background-color: rgb(61, 84, 126);
+    
     }
 }
