@@ -121,7 +121,7 @@ del.onclick = function (){
         val = val.join('')
         input.value = val
 }
-zero.onclick = ()=>numbersInput('0')
+zero.onclick = ()=>{if(input.value == ''){return} numbersInput('0')}
 one.onclick = ()=>numbersInput('1')
 two.onclick = ()=>numbersInput('2')
 three.onclick = ()=>numbersInput('3')
@@ -139,6 +139,7 @@ multiplay.onclick = () => operations('x')
 dot.onclick =  () => operations('.')
 
 equalBtn.onclick = function (){
+        checkeq++
         let value = input.value
         while(/[*x/]/.test(value)){
                 value = mulDevition(value)
