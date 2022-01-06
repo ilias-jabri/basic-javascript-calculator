@@ -1,3 +1,7 @@
+
+let result = null;
+let checkeq = 0;
+let stack = null
 let input = document.getElementById('input')
 let equalBtn = document.getElementById('equalButton')
 let zero = document.getElementById('0')
@@ -27,16 +31,12 @@ let purple = document.getElementById('purple')
 let defaultColor = document.getElementById('default-color')
 let orange = document.getElementById('orange')
 let calculator = document.getElementById('calcu')
-
 red.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , red, aqua)'}
 black.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , black, aqua)'}
 green.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , green, aqua)'}
 purple.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , purple, aqua)'}
 orange.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , orange, aqua)'}
 defaultColor.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , rgb(53, 53, 94), aqua)'}
-
-
-
 function mulDevition(numString){
 let reg = /\d+[*/x]\d+/;
 let solution = null 
@@ -53,9 +53,6 @@ if( /[*x]/.test(operation) ){
 numString = numString.replace(/\d+[*/x]\d+/,solution)
 return numString
 }
-
-
-
 function sumSubtract(numString){
         let reg = /\d+[+-]\d+/;
         let solution = null 
@@ -72,17 +69,12 @@ function sumSubtract(numString){
         numString = numString.replace(/\d+[-+]\d+/,solution)
         return numString
         }
-
-
-
-
 click.onclick = ()=>{
         hidSection.style.transform = 'translate(-250px)'
         hidSection.style.visibility = 'hidden'
         hidSection.style.opacity = '0'
         click.style.opacity = '0'
 }
-
 settings.onclick = ()=> { 
         console.log(true)
         click.style.opacity = '0.8'
@@ -90,15 +82,6 @@ settings.onclick = ()=> {
         hidSection.style.visibility = 'visible'
         hidSection.style.transform = 'translate(0px)'
 }
-
-
-
-let result = null;
-let checkeq = 0;
-let stack = null
-
-
-
 function numbersInput(val){
         if(checkeq === 1){checkeq = 0; input.value = val}
         else{input.value = input.value + val; stack = val}
@@ -111,8 +94,6 @@ function operations(val){
         else if(input.value == ''){return}
         else{input.value = input.value + val; stack = val}
 }
-
-
 reset.onclick = function (){input.value = ''}
 del.onclick = function (){ 
         let val = input.value
@@ -131,13 +112,11 @@ six.onclick = ()=>numbersInput('6')
 seven.onclick = ()=>numbersInput('7')
 eight.onclick = ()=>numbersInput('8')
 nine.onclick = ()=>numbersInput('9')
-
 plus.onclick = () => operations('+')
 minus.onclick = () => operations('-')
 devide.onclick = () => operations('/')
 multiplay.onclick = () => operations('x')
 dot.onclick =  () => operations('.')
-
 equalBtn.onclick = function (){
         checkeq++
         let value = input.value
