@@ -38,22 +38,42 @@ defaultColor.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg
 
 
 function mulDevition(numString){
-let reg = /\d+[*/]\d+/;
+let reg = /\d+[*/x]\d+/;
+let solution = null 
 let operation = numString.match(reg)[0]
-
 let first,last;
-
 first = operation.match(/\d+/)[0]
-last = operation.match(/(?<=[*/])\d+/)[0]
-
+last = operation.match(/(?<=[*/x])\d+/)[0]
 if( /[/]/.test(operation) ){
-        console.log('fffffffffffffff')
+        solution = parseFloat(first)/parseFloat(last)
 }
-if( /[*]/.test(operation) ){
-        console.log('fffffffffffffff')
+if( /[*x]/.test(operation) ){
+        solution = parseFloat(first)*parseFloat(last)
 }
-return console.log(operation , first,last)
+numString = numString.replace(/\d+[*/x]\d+/,solution)
+return numString
 }
+
+
+
+function sumSubtract(numString){
+        let reg = /\d+[+-]\d+/;
+        let solution = null 
+        let operation = numString.match(reg)[0]
+        let first,last;
+        first = operation.match(/\d+/)[0]
+        last = operation.match(/(?<=[+-])\d+/)[0]
+        if( /[+]/.test(operation) ){
+                solution = parseFloat(first)+parseFloat(last)
+        }
+        if( /[-]/.test(operation) ){
+                solution = parseFloat(first)-parseFloat(last)
+        }
+        numString = numString.replace(/\d+[-+]\d+/,solution)
+        return numString
+        }
+
+
 
 
 click.onclick = ()=>{
@@ -119,50 +139,15 @@ multiplay.onclick = () => operations('x')
 dot.onclick =  () => operations('.')
 
 equalBtn.onclick = function (){
-        mulDevition(input.value)
-        if (checkeq > 0) {
-                return input.value = ''
-        }
-        checkeq+=1
-        result = null
         let value = input.value
-        let regex = /[-\+\/\*x]/i
-        let operator = value.match(regex)[0]
-        let end = value.match(regex).index
-        arr = [...value]
-        console.log(end, operator)
-        let first = arr.slice(0,end)
-        let seccond = arr.slice(end+1)
-        console.log(typeof first)
-        console.log(first,seccond)
-        first = first.join('')
-        seccond = seccond.join('')
-        first = parseFloat(first)
-        seccond = parseFloat(seccond)
-        switch (operator) {
-                case '-':
-                      result= first - seccond  
-                        break;
-                case '+':
-                        result= first + seccond  
-                        break;
-         
-                case '*':
-                        result= first * seccond  
-                        break;
-                case 'x':
-                        result= first * seccond  
-                        break;
-                case 'X':
-                        result= first * seccond  
-                        break;        
-                case '/':
-                        result= first / seccond  
-                        break;          
+        while(/[*x/]/.test(value)){
+                value = mulDevition(value)
+                console.log(1)
         }
-
-        input.value = result
-        
-        
+        while(/[+-]/.test(value)){
+                value = sumSubtract(value)
+                console.log(1)
+        }
+        input.value = value
 }
 
