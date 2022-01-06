@@ -35,6 +35,27 @@ purple.onclick = ()=> { calculator.style.background = 'linear-gradient(0deg , pu
 orange.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , orange, aqua)'}
 defaultColor.onclick = ()=>{ calculator.style.background = 'linear-gradient(0deg , rgb(53, 53, 94), aqua)'}
 
+
+
+function mulDevition(numString){
+let reg = /\d+[*/]\d+/;
+let operation = numString.match(reg)[0]
+
+let first,last;
+
+first = operation.match(/\d+/)[0]
+last = operation.match(/(?<=[*/])\d+/)[0]
+
+if( /[/]/.test(operation) ){
+        console.log('fffffffffffffff')
+}
+if( /[*]/.test(operation) ){
+        console.log('fffffffffffffff')
+}
+return console.log(operation , first,last)
+}
+
+
 click.onclick = ()=>{
         hidSection.style.transform = 'translate(-250px)'
         hidSection.style.visibility = 'hidden'
@@ -98,19 +119,20 @@ multiplay.onclick = () => operations('x')
 dot.onclick =  () => operations('.')
 
 equalBtn.onclick = function (){
+        mulDevition(input.value)
         if (checkeq > 0) {
                 return input.value = ''
         }
         checkeq+=1
         result = null
-        let kkk = input.value
+        let value = input.value
         let regex = /[-\+\/\*x]/i
-        let operator = kkk.match(regex)[0]
-        let end = kkk.match(regex).index
-        kkk = [...input.value]
+        let operator = value.match(regex)[0]
+        let end = value.match(regex).index
+        arr = [...value]
         console.log(end, operator)
-        let first = kkk.slice(0,end)
-        let seccond = kkk.slice(end+1)
+        let first = arr.slice(0,end)
+        let seccond = arr.slice(end+1)
         console.log(typeof first)
         console.log(first,seccond)
         first = first.join('')
@@ -140,7 +162,7 @@ equalBtn.onclick = function (){
         }
 
         input.value = result
-        console.log(result)
+        
         
 }
 
