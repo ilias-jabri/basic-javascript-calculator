@@ -32,9 +32,7 @@ background-color: purple;
     grid-template-rows: repeat(4,1fr);
     gap: 8px;
 }
-#colors-section{
-    
-}
+
 #change-colors-txt{
     grid-column: 1/4;
     text-align: center;
@@ -157,9 +155,9 @@ body{
     font-size: 20px;
     padding-left: 10px;
     border: none;
-    height: 35px;
-    width: 210px;
-    margin-top: 20px;
+    height: 45px;
+    width: 205px;
+    margin-top: 15px;
     margin-left: 42px;
 }
 #c{
