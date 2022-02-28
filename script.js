@@ -1169,13 +1169,17 @@ class Sat{
       
       
       
-      let set = new Sat()
+let set = new Sat()
       
-      set.addMultiple(1,2,3,4,5,6,7,8,9)
-      set.display()
-      set.has(7)
+set.addMultiple(1,2,3,4,5,6,7,8,9)
+set.display()
+set.has(7)
       
-      
+function telephoneCheck(str) {
+let reg = /^1?\s?\(\d{3,3}\)[--\s]?\d{3,3}[--\s]?\d{4,4}$|^1?\s?\d{3,3}[--\s]?\d{3,3}[--\s]?\d{4,4}$/
+return reg.test(str);}
+
+telephoneCheck("1 555-555-5555");
       
       
       
